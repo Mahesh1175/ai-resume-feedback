@@ -7,14 +7,13 @@ import { AuthContext } from "../context/AuthContext";
 
 export default function Header() {
 //  const [user, setUser] = useState(null);
-const { setUser } = useContext(AuthContext);
-const { user } = useContext(AuthContext);
+const { user ,setUser } = useContext(AuthContext);
 
   useEffect(() => {
   
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) setUser(storedUser);
-  }, []); 
+  }, [setUser]); 
 
   return (
     <header className="bg-[#2a2a2a] text-white px-6 py-4 flex justify-between items-center shadow-md">
@@ -22,12 +21,12 @@ const { user } = useContext(AuthContext);
         AI Resume Feedback <span className="animate-pulse">✨</span>
       </h1>
 
-      {user?.username ? (
-        <Tippy content={`Logged in as ${user.username}`} placement="bottom">
+      {user?.username || user?.displayName ? (
+        <Tippy content={`Logged in as ${user?.username || user?.displayName}`} placement="bottom">
           <div className="flex items-center gap-2 px-4 py-2  hover:bg-[#444] transition cursor-pointer">
             <GoPerson  className="text-2xl text-yellow-400" />
             <span className=" sm:block text-sm font-medium capitalize text-white">
-              {user.username} !
+              {user?.username || (user?.displayName)?.split(" ")[0]}!
             </span>
           </div>
         </Tippy>

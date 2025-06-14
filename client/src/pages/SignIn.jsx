@@ -67,7 +67,7 @@ export default function Signin() {
             alt="Google"
             className="w-5 h-5"
           />
-          <span className="font-medium">Sign Up with Google</span>
+          <span className="font-medium">Continue with Google</span>
         </button>
 
         <p className="mt-4 text-center text-gray-400">

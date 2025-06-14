@@ -105,7 +105,7 @@ function GoogleButton() {
           alt="Google"
           className="w-5 h-5"
         />
-        <span className="font-medium">Sign Up with Google</span>
+        <span className="font-medium">Continue with Google</span>
       </button>
 
       {err && <p className="text-red-400">{err}</p>}
