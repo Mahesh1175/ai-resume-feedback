@@ -1,10 +1,11 @@
-  const requestData = {
-      contents: [
+const createRequestData =(text) => {
+  return {
+  contents: [
+    {
+      role: "user",
+      parts: [
         {
-          role: "user",
-          parts: [
-            {
-              text: `Analyze this resume and provide a structured response in JSON format with the following fields:
+          text: `Analyze this resume and provide a structured response in JSON format with the following fields:
               
              {
   "resumeScore": {
@@ -112,9 +113,10 @@
 
     
               Resume content: \n\n${text}`
-            }
-          ]
         }
       ]
-    };
-module.exports = requestData;
+    }
+  ]
+}
+};
+module.exports = createRequestData;

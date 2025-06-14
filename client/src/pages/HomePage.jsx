@@ -34,7 +34,7 @@ const HomePage = ({ user }) => {
         method: "POST",
         body: formData,
       });
-
+console.log("resp",response)
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

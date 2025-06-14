@@ -6,7 +6,7 @@ const fs = require("fs");
 const mammoth = require("mammoth");
 const pdfParse = require("pdf-parse"); //  Use pdf-parse instead of pdf-lib
 require("dotenv").config();
-const requestData = require("./requestedData");
+const createRequestData  = require("./requestedData");
 const app = express();
 const port = 5000;
 const upload = multer({ dest: "uploads/" });
@@ -67,9 +67,10 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     }
 
     console.log(" Extracted Text:", text.substring(0, 200) + "..."); // Log first 200 chars for debugging
-    
 
     console.log(" Sending request to Gemini API...");
+
+   const requestData = createRequestData(text);
 
     const response = await axios.post(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
