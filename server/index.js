@@ -12,8 +12,10 @@ const port = process.env.PORT ||5000;
 const upload = multer({ dest: "uploads/" });
 
 app.use(cors({
-  origin: "*", 
+  origin: "https://ai-resume-feedback.netlify.app",  // allow Netlify domain
+  methods: ["GET", "POST"],
 }));
+
 app.use(express.json());
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
