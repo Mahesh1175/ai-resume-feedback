@@ -11,7 +11,9 @@ const app = express();
 const port = process.env.PORT ||5000;
 const upload = multer({ dest: "uploads/" });
 
-app.use(cors());
+app.use(cors({
+  origin: "*", 
+}));
 app.use(express.json());
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
