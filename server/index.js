@@ -8,7 +8,7 @@ const pdfParse = require("pdf-parse"); //  Use pdf-parse instead of pdf-lib
 require("dotenv").config();
 const createRequestData  = require("./requestedData");
 const app = express();
-const port = 5000;
+const port = process.env.PORT ||5000;
 const upload = multer({ dest: "uploads/" });
 
 app.use(cors());
