@@ -60,7 +60,7 @@ console.log("resp",response)
       <div className="flex justify-center items-center min-h-screen bg-[#212121]">
         <div className="bg-[#2a2a2a] p-8 rounded-xl shadow-lg w-full max-w-lg text-center text-white">
           <h1 className="text-4xl font-bold text-gray-100 mb-4">
-            AI Resume Feedback✨
+            AI Resume Feedback <span className="animate-pulse">✨</span>
           </h1>
           {/* <h1 className="text-3xl font-bold text-gray-100 mb-4">
   Make your resume shine 💫
@@ -97,7 +97,7 @@ console.log("resp",response)
             </div>
           </label>
 
-          {file && <p className="mt-2 text-gray-300">Selected: {file.name}</p>}
+          {file && <p className="mt-2 text-gray-300">Selected: <span className="text-yellow-300">{file.name}</span></p>}
 
           {/* Upload & Analyze Button */}
           <button
